@@ -25,13 +25,19 @@ function addlistafterkeypress(event){
 button.addEventListener("click",addlistafterclick);
 input.addEventListener("keypress",addlistafterkeypress);
 
-
-var done=document.getElementsByTagName("li");
-for(let i=0;i<done.length;i++){
-  done[i].addEventListener("click",function (){
-    done[i].classList.toggle("done");
-  })
-} 
+//this loop worked but it cant accept new descendents 
+// var done=document.getElementsByTagName("li");
+// for(let i=0;i<done.length;i++){
+//   done[i].addEventListener("click",function (){
+//     done[i].classList.toggle("done");
+//   })
+// } 
+ul.addEventListener("click",function(e){
+ 
+if(e.target.matches("li")){
+  e.target.classList.toggle("done")
+}
+})
 
 
 ul.addEventListener("click",function(e){
@@ -39,6 +45,3 @@ ul.addEventListener("click",function(e){
    e.target.parentElement.remove();
  }
 })
-
-
-
